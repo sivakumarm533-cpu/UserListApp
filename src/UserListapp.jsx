@@ -9,8 +9,8 @@ const UserListapp = () => {
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/users")
             .then((response) => {
-                if(!response){
-                    throw new Error("fetching datas failed")
+                if(!response.ok){
+                    throw new Error("fetching datas failed");
                 }
                 return response.json();
             })
@@ -21,25 +21,35 @@ const UserListapp = () => {
             .catch((error) =>{
                 setError(error.message);
                 setLoading(false);
-            })
+            });
             
-    })
+    },[]);
   return (
     <>
-    <div>
+    <div className="userlistapp">
+
         <h1>User List App</h1>
 
-        {!loading && error && <p style={{color: 'red'}}>{error}</p>}
+        {/* set error */}
 
-        {loading ? (<p>Loading...</p>) : (
-            <ul>
-                {users.map((user) =>{
+        <div className="loadingError">
+            {!loading && error && <p className="Error">{error}</p>}
+        </div>
+
+        {/* set loading */}
+
+        <div className="loadingusers">
+            {loading ? (<p>Loading...</p>) : (
+            <ul className="Users">
+                {users.map((user) =>(
                     <li key={user.id}>
                         <strong>{user.name}</strong> - {user.email}
                     </li>
-                })}
+                ))}
             </ul>
         )}
+        </div>
+        
     </div>    
     </>
   )

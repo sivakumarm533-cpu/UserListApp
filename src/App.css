@@ -1,0 +1,26 @@
+.userlistapp{
+    margin: 10%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(37, 44, 183, 0.637);
+}
+.Error{
+    color: red;
+    background-color: rgba(165, 42, 42, 0.604);
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+
+.Users{
+    padding: 20px;
+    list-style: none;
+    line-height: 1.5;
+}
+.Users li {
+    color: rgb(203, 200, 200);
+}
+.Users li strong{
+    color: black;
+}
